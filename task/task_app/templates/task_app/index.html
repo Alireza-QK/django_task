@@ -11,7 +11,6 @@
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Title task</th>
-					<th scope="col">Status task</th>
 					<th scope="col">Actions</th>
 				</tr>
 			</thead>
@@ -19,30 +18,16 @@
 				{% for task in tasks %}
 				<tr>
 					<th>{{ task.id }}</th>
+					<td>{{ task.title }}</td>
 					<td>
-						{% if task.status %}
-							<del>{{ task.title }}</del>
-							{% else %}
-							{{ task.title }}
-						{% endif %}
-
-					</td>
-					<td>
-						{% if task.status %}
-							<span class="badge badge-success">Task is done</span>
-							{% else %}
-							<span class="badge badge-danger">Task is not done</span>
-						{% endif %}
-					</td>
-					<td>
-						<a href="#" class="btn btn-info btn-sm">Edit</a>
-						<a href="#" class="btn btn-danger btn-sm">Delete</a>
+						<a href="{% url 'task:edit-task' task.pk %}" class="btn btn-info btn-sm">Edit</a>
+						<a href="{% url 'task:delete-task' task.pk %}" class="btn btn-danger btn-sm">Delete</a>
 					</td>
 				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
-		<nav aria-label="Page navigation">
+		<!-- <nav aria-label="Page navigation">
 			<ul class="pagination">
 				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
 				<li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -50,7 +35,7 @@
 				<li class="page-item"><a class="page-link" href="#">3</a></li>
 				<li class="page-item"><a class="page-link" href="#">Next</a></li>
 			</ul>
-		</nav>
+		</nav> -->
 	</div>
 </main>
 {% endblock %}
