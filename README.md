@@ -1,2 +1,2 @@
-# django_task
+# django task
 پروژه تسک با جنگو
