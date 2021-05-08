@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http.response import HttpResponse
 from django.contrib import messages
 from django.urls import reverse
+from django.views.generic.edit import UpdateView
 from .models import Task
+from .forms import TaskForm
 
 
 def homePage(request):
@@ -21,10 +23,12 @@ def CreateTaskPage(request):
 		if form['title_task']:
 			title = form['title_task']
 			Task.objects.create(title=title)
+			return redirect(reverse('task:home'))
 		else:
 			messages.error(request, "title can't empty", 'danger')
 
 	return render(request, 'task_app/create-task.html', context={})
+
 
 def deleteTask(request, pk):
 	
@@ -41,17 +45,15 @@ def deleteTask(request, pk):
 
 def EditTaskPage(request, pk):
 
-	task = get_object_or_404(Task, pk=pk)
+	context ={}
+	obj = get_object_or_404(Task, pk = pk)
+	form = TaskForm(request.POST or None, instance=obj or None)
 
-	form = ''
-	if request.method == 'POST':
-		form = request.POST
-		title = form['title_task']
-		if title:
-			Task.objects.update(title=title)
-			return redirect(reverse('task:home'))
-
-
-	context = {'task': task}
-
+	if form.is_valid():
+		# save the form data to model
+		form.save()
+		return redirect(reverse('task:home'))
+	
+	context['form'] = form
 	return render(request, 'task_app/edit-task.html', context)
+
