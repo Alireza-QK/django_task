@@ -2,5 +2,5 @@
 پروژه تسک با جنگو
 
 ## تکنولوژی های استفاده شده در پروژه
-[] Django - python
+[] Django - python <br>
 [] Bootstrap & Jquery
