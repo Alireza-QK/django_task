@@ -19,7 +19,14 @@
 				{% for task in tasks %}
 				<tr>
 					<th>{{ task.id }}</th>
-					<td>{{ task.title }}</td>
+					<td>
+						{% if task.status %}
+							<del>{{ task.title }}</del>
+							{% else %}
+							{{ task.title }}
+						{% endif %}
+
+					</td>
 					<td>
 						{% if task.status %}
 							<span class="badge badge-success">Task is done</span>

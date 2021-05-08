@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http.response import HttpResponse
+from django.contrib import messages
 from .models import Task
 
 
@@ -19,5 +21,10 @@ def CreateTaskPage(request):
 			title = form['title_task']
 			status = False
 			Task.objects.create(title=title, status=status)
+		else:
+			messages.error(request, "title can't empty", 'danger')
 
 	return render(request, 'task_app/create-task.html', context={})
+
+def StatusTaskPage(request):
+	return HttpResponse('dd')
