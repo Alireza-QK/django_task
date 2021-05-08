@@ -3,4 +3,4 @@ from django.http.response import HttpResponse
 
 
 def homePage(request):
-	return HttpResponse('Heloo World!')
+	return render(request, 'task_app/index.html', {})
