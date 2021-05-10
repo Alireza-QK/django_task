@@ -26,7 +26,7 @@ class CreateTaskView(CreateView):
 class UpdateTaskView(UpdateView):
 	template_name = 'task_app/edit-task.html'
 	model = Task
-	fields = ['title']
+	form_class = TaskForm
 	success_url = '/'
 
 
