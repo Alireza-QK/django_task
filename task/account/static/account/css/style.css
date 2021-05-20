@@ -16,3 +16,14 @@ body {
 	box-shadow: 0 0 5px -1px rgba(0, 0, 0, .8);
 	border-radius: 10px;
 }
+
+.errorlist {
+	width: 100%;
+	list-style: none;
+	background-color: #fd8b8b;
+	border-radius: 5px;
+	padding: 10px;
+	color: #000;
+	font-weight: bold;
+	border: 1px solid #d74242;
+}
