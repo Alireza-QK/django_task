@@ -1,0 +1,15 @@
+{% extends 'account/base_html.html' %}
+
+{% block title %} Panel register user {% endblock %}
+
+{% block title_head %} Form register user {% endblock %}
+
+{% block content %}
+	
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		<button type="submit" class="btn btn-success">Register</button>
+	</form>
+{% endblock %}

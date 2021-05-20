@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'account/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-9">
+				<div id="section-main">
+					<h3 class="text-center">{% block title_head %}Login{% endblock %}</h3>
+					<hr>
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
