@@ -1,12 +1,12 @@
-from django.urls import path,re_path
+from django.urls import path
 from .views import (
-	loginView,
-	RegisterView,
+    loginView,
+    RegisterView,
 )
 
 app_name = 'account'
 
 urlpatterns = [
-	path('login', loginView, name="login"),
-	path('register', RegisterView, name="register"),
+    path('login', loginView, name="login"),
+    path('register', RegisterView, name="register"),
 ]

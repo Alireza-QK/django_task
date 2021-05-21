@@ -8,8 +8,47 @@
 	
 	<form method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
+		<div class="form-row">
+			
 
-		<button type="submit" class="btn btn-success">Register</button>
+			<div class="form-group col-md-6">
+				<label for="{{ form.username.id_for_label }}">Username:</label>
+				{{ form.username }}
+				<p>{{ form.username.errors }}</p>
+			</div>
+			<div class="form-group col-md-6">
+				<label for="{{ form.email.id_for_label }}">Email:</label>
+				{{ form.email }}
+				<p>{{ form.email.errors }}</p>
+			</div>
+
+			<div class="form-group col-md-12">
+				<label for="{{ form.mobile.id_for_label }}">Phone number:</label>
+				{{ form.mobile }}
+				<p>{{ form.mobile.errors }}</p>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for="{{ form.password1.id_for_label }}">Password:</label>
+				{{ form.password1 }}
+				<p>{{ form.password1.errors }}</p>
+			</div>
+			<div class="form-group col-md-6">
+				<label for="{{ form.password2.id_for_label }}">Confirm password:</label>
+				{{ form.password2 }}
+				<p>{{ form.password2.errors }}</p>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for="{{ form.first_name.id_for_label }}">First name:</label>
+				{{ form.first_name }}
+			</div>
+			<div class="form-group col-md-6">
+				<label for="{{ form.last_name.id_for_label }}">Last name:</label>
+				{{ form.last_name }}
+			</div>
+		</div>
+		
+		<button type="submit" class="btn btn-primary w-100">Register</button>
 	</form>
 {% endblock %}
